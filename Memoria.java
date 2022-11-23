@@ -1,26 +1,37 @@
-import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import javax.swing.*;
 
 public class Memoria extends JFrame {
+    private List<Carta> cartas = new ArrayList<Carta>();
+    private List<Icon> imagens = new ArrayList<Icon>();
+    private List<Carta> cartasClicadas = new ArrayList<Carta>();
 
-    private JButton botao1 = new JButton("botao1"),
-            botao2 = new JButton("botao2"),
-            botao3 = new JButton("botao3"),
-            botao4 = new JButton("botao4"),
-            botao5 = new JButton("botao5"),
-            botao6 = new JButton("botao6"),
-            botao7 = new JButton("botao7"),
-            botao8 = new JButton("botao8"),
-            botao9 = new JButton("botao9"),
-            botao10 = new JButton("botao10"),
-            botao11 = new JButton("botao11"),
-            botao12 = new JButton("botao12"),
-            botao13 = new JButton("botao13"),
-            botao14 = new JButton("botao14"),
-            botao15 = new JButton("botao15"),
-            botao16 = new JButton("botao16"),
-            botao17 = new JButton("botao17"),
-            botao18 = new JButton("botao18");
+    private void embaralharCartas() {
+        Integer[] imagensCartas = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9 };
+
+        List<Integer> intList = Arrays.asList(imagensCartas);
+
+        Collections.shuffle(intList);
+
+        intList.toArray(imagensCartas);
+
+        for (int i = 0; i < 18; i++) {
+            JButton botao = new JButton();
+            Carta carta = new Carta(botao, imagensCartas[i]);
+            cartas.add(carta);
+        }
+    }
+
+    private void definirImagens() {
+        Icon icon = new ImageIcon("imagens\turmaDaMonica.jpg");
+        for (int i = 0; i < 9; i++) {
+            imagens.add(icon);
+        }
+    }
 
     private JPanel painel;
 
@@ -31,75 +42,81 @@ public class Memoria extends JFrame {
         this.add(painel);
         painel.setLayout(null);
 
-        painel.add(botao1);
-        botao1.setBounds(10, 100, 150, 150);
+        List<Integer[]> posicoes = new ArrayList<Integer[]>();
+        Integer[] posicao1 = { 10, 100, 150, 150 };
+        posicoes.add(posicao1);
+        Integer[] posicao2 = { 170, 100, 150, 150 };
+        posicoes.add(posicao2);
+        Integer[] posicao3 = { 330, 100, 150, 150 };
+        posicoes.add(posicao3);
+        Integer[] posicao4 = { 490, 100, 150, 150 };
+        posicoes.add(posicao4);
+        Integer[] posicao5 = { 650, 100, 150, 150 };
+        posicoes.add(posicao5);
+        Integer[] posicao6 = { 810, 100, 150, 150 };
+        posicoes.add(posicao6);
+        Integer[] posicao7 = { 10, 270, 150, 150 };
+        posicoes.add(posicao7);
+        Integer[] posicao8 = { 170, 270, 150, 150 };
+        posicoes.add(posicao8);
+        Integer[] posicao9 = { 330, 270, 150, 150 };
+        posicoes.add(posicao9);
+        Integer[] posicao10 = { 490, 270, 150, 150 };
+        posicoes.add(posicao10);
+        Integer[] posicao11 = { 650, 270, 150, 150 };
+        posicoes.add(posicao11);
+        Integer[] posicao12 = { 810, 270, 150, 150 };
+        posicoes.add(posicao12);
+        Integer[] posicao13 = { 10, 440, 150, 150 };
+        posicoes.add(posicao13);
+        Integer[] posicao14 = { 170, 440, 150, 150 };
+        posicoes.add(posicao14);
+        Integer[] posicao15 = { 330, 440, 150, 150 };
+        posicoes.add(posicao15);
+        Integer[] posicao16 = { 490, 440, 150, 150 };
+        posicoes.add(posicao16);
+        Integer[] posicao17 = { 650, 440, 150, 150 };
+        posicoes.add(posicao17);
+        Integer[] posicao18 = { 810, 440, 150, 150 };
+        posicoes.add(posicao18);
 
-        painel.add(botao2);
-        botao2.setBounds(170, 100, 150, 150);
+        embaralharCartas();
+        definirImagens();
 
-        painel.add(botao3);
-        botao3.setBounds(330, 100, 150, 150);
+        for (int i = 0; i < cartas.size(); i++) {
+            JButton botao = cartas.get(i).getBotao();
+            painel.add(botao);
+            botao.setBounds(
+                    posicoes.get(i)[0],
+                    posicoes.get(i)[1],
+                    posicoes.get(i)[2],
+                    posicoes.get(i)[3]);
 
-        painel.add(botao4);
-        botao4.setBounds(490, 100, 150, 150);
 
-        painel.add(botao5);
-        botao5.setBounds(650, 100, 150, 150);
+            Integer position = i;
+            botao.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    if (cartasClicadas.size() < 2) {
+                        cartasClicadas.add(cartas.get(position));
+                        Integer posicaoImagem = cartas.get(position).getImagem();
+                        Icon icon = imagens.get(posicaoImagem - 1);
+                        botao.setIcon(icon);
+                    }
+                    if (cartasClicadas.size() == 2) {
+                        if (cartasClicadas.get(0).getImagem() != cartasClicadas.get(1).getImagem()) { 
+                            cartasClicadas.get(0).getBotao().setIcon(null);
+                            cartasClicadas.get(1).getBotao().setIcon(null);
+                        }
 
-        painel.add(botao6);
-        botao6.setBounds(810, 100, 150, 150);
-
-        painel.add(botao7);
-        botao7.setBounds(10, 270, 150, 150);
-
-        painel.add(botao8);
-        botao8.setBounds(170, 270, 150, 150);
-
-        painel.add(botao9);
-        botao9.setBounds(330, 270, 150, 150);
-
-        painel.add(botao10);
-        botao10.setBounds(490, 270, 150, 150);
-
-        painel.add(botao11);
-        botao11.setBounds(650, 270, 150, 150);
-
-        painel.add(botao12);
-        botao12.setBounds(810, 270, 150, 150);
-
-        painel.add(botao13);
-        botao13.setBounds(10, 440, 150, 150);
-
-        painel.add(botao14);
-        botao14.setBounds(170, 440, 150, 150);
-
-        painel.add(botao15);
-        botao15.setBounds(330, 440, 150, 150);
-
-        painel.add(botao16);
-        botao16.setBounds(490, 440, 150, 150);
-
-        painel.add(botao17);
-        botao17.setBounds(650, 440, 150, 150);
-
-        painel.add(botao18);
-        botao18.setBounds(810, 440, 150, 150);
-
-        botao1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-
-                ((JButton) evt.getSource()).setBackground(Color.GREEN);
-                // controle.selecionarBotao((JButton)evt.getSource(), Boolean.TRUE);
-                // ((JButton)evt.getSource()).setText(controle.getNmBotao());
-
-            }
-        });
+                        cartasClicadas = new ArrayList<Carta>();
+                    }
+                }
+            });
+        }
 
         this.setBounds(240, 20, 987, 650);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-
     }
-
 }
