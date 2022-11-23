@@ -1,3 +1,5 @@
+
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,6 +11,7 @@ public class Memoria extends JFrame {
     private List<Carta> cartas = new ArrayList<Carta>();
     private List<Icon> imagens = new ArrayList<Icon>();
     private List<Carta> cartasClicadas = new ArrayList<Carta>();
+    Icon card = new ImageIcon("imagens/card.jpg");
 
     private void embaralharCartas() {
         Integer[] imagensCartas = { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9 };
@@ -20,16 +23,25 @@ public class Memoria extends JFrame {
         intList.toArray(imagensCartas);
 
         for (int i = 0; i < 18; i++) {
-            JButton botao = new JButton();
+            JButton botao = new JButton(card);
             Carta carta = new Carta(botao, imagensCartas[i]);
             cartas.add(carta);
         }
     }
 
     private void definirImagens() {
-        Icon icon = new ImageIcon("imagens\turmaDaMonica.jpg");
+        Icon[] icon = {new ImageIcon("imagens/turmaDaMonica.jpg"), 
+                       new ImageIcon("C:/Users/u22127/Documents/GitHub/jogoDaMemoria/imagens/looney-tunes.jpg"),
+                       new ImageIcon("imagens/padrinhosMagicos.jpg"),
+                       new ImageIcon("imagens/perry-o-ornitorrinco.png"),
+                       new ImageIcon("imagens/Rei-LEao.jpg"),
+                       new ImageIcon("imagens/scoobDoo.jpg"),
+                       new ImageIcon("imagens/stitch.jpg"),
+                       new ImageIcon("imagens/mickey.jpg"),
+                       new ImageIcon("imagens/tresespias.jpg")
+    };
         for (int i = 0; i < 9; i++) {
-            imagens.add(icon);
+            imagens.add(icon[i]);
         }
     }
 
@@ -92,7 +104,6 @@ public class Memoria extends JFrame {
                     posicoes.get(i)[2],
                     posicoes.get(i)[3]);
 
-
             Integer position = i;
             botao.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,8 +115,13 @@ public class Memoria extends JFrame {
                     }
                     if (cartasClicadas.size() == 2) {
                         if (cartasClicadas.get(0).getImagem() != cartasClicadas.get(1).getImagem()) { 
-                            cartasClicadas.get(0).getBotao().setIcon(null);
-                            cartasClicadas.get(1).getBotao().setIcon(null);
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            cartasClicadas.get(0).getBotao().setIcon(card);
+                            cartasClicadas.get(1).getBotao().setIcon(card);
                         }
 
                         cartasClicadas = new ArrayList<Carta>();
