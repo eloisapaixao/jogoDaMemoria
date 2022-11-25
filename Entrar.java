@@ -32,7 +32,7 @@ public class Entrar extends JFrame {
 
         btnJogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                new Memoria();
+                new Memoria(txtNome.getText());
             }
         });
 
@@ -50,6 +50,7 @@ public class Entrar extends JFrame {
         btnJogar.setOpaque(true);
         btnJogar.setBackground(roxo);
 
+        jff.setBounds(240, 20, 987, 650);
         jff.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jff.setVisible(true);
 

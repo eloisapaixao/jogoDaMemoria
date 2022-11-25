@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -8,6 +9,20 @@ import java.util.List;
 import javax.swing.*;
 
 public class Memoria extends JFrame {
+
+    protected JLabel jogador1 = new JLabel("Jogador 1"),
+            jogador2 = new JLabel("jogador 2"),
+            x = new JLabel("X"),
+            pt1 = new JLabel("0"),
+            pt2 = new JLabel("0");
+
+    private String nome;
+    private Integer pontos = 0;
+
+    private JPanel ponto1 = new JPanel(),
+            ponto2 = new JPanel();
+    private boolean[] cartasJaClicadasDoJogo = new boolean[18];
+
     private List<Carta> cartas = new ArrayList<Carta>();
     private List<Icon> imagens = new ArrayList<Icon>();
     private List<Carta> cartasClicadas = new ArrayList<Carta>();
@@ -24,22 +39,22 @@ public class Memoria extends JFrame {
 
         for (int i = 0; i < 18; i++) {
             JButton botao = new JButton(card);
-            Carta carta = new Carta(botao, imagensCartas[i]);
+            Carta carta = new Carta(botao, imagensCartas[i], i);
             cartas.add(carta);
         }
     }
 
     private void definirImagens() {
-        Icon[] icon = {new ImageIcon("imagens/turmaDaMonica.jpg"), 
-                       new ImageIcon("C:/Users/u22127/Documents/GitHub/jogoDaMemoria/imagens/looney-tunes.jpg"),
-                       new ImageIcon("imagens/padrinhosMagicos.jpg"),
-                       new ImageIcon("imagens/perry-o-ornitorrinco.png"),
-                       new ImageIcon("imagens/Rei-LEao.jpg"),
-                       new ImageIcon("imagens/scoobDoo.jpg"),
-                       new ImageIcon("imagens/stitch.jpg"),
-                       new ImageIcon("imagens/mickey.jpg"),
-                       new ImageIcon("imagens/tresespias.jpg")
-    };
+        Icon[] icon = { new ImageIcon("imagens/turmaDaMonica.jpg"),
+                new ImageIcon("C:/Users/u22127/Documents/GitHub/jogoDaMemoria/imagens/looney-tunes.jpg"),
+                new ImageIcon("imagens/padrinhosMagicos.jpg"),
+                new ImageIcon("imagens/perry-o-ornitorrinco.png"),
+                new ImageIcon("imagens/Rei-LEao.jpg"),
+                new ImageIcon("imagens/scoobDoo.jpg"),
+                new ImageIcon("imagens/stitch.jpg"),
+                new ImageIcon("imagens/mickey.jpg"),
+                new ImageIcon("imagens/tresespias.jpg")
+        };
         for (int i = 0; i < 9; i++) {
             imagens.add(icon[i]);
         }
@@ -47,8 +62,10 @@ public class Memoria extends JFrame {
 
     private JPanel painel;
 
-    protected Memoria() {
+    protected Memoria(String nome) {
         super("Jogo da Memória");
+
+        this.nome = nome;
 
         painel = new JPanel();
         this.add(painel);
@@ -105,30 +122,78 @@ public class Memoria extends JFrame {
                     posicoes.get(i)[3]);
 
             Integer position = i;
-            botao.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    if (cartasClicadas.size() < 2) {
-                        cartasClicadas.add(cartas.get(position));
-                        Integer posicaoImagem = cartas.get(position).getImagem();
-                        Icon icon = imagens.get(posicaoImagem - 1);
-                        botao.setIcon(icon);
-                    }
-                    if (cartasClicadas.size() == 2) {
-                        if (cartasClicadas.get(0).getImagem() != cartasClicadas.get(1).getImagem()) { 
-                            try {
-                                Thread.sleep(1000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            cartasClicadas.get(0).getBotao().setIcon(card);
-                            cartasClicadas.get(1).getBotao().setIcon(card);
-                        }
 
-                        cartasClicadas = new ArrayList<Carta>();
+            botao.addActionListener(new java.awt.event.ActionListener() {
+
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    if (!cartasJaClicadasDoJogo[position]) {
+                        cartasJaClicadasDoJogo[position] = true;
+
+                        if (cartasClicadas.size() < 2) {
+                            cartasClicadas.add(cartas.get(position));
+                            Integer posicaoImagem = cartas.get(position).getImagem();
+                            Icon icon = imagens.get(posicaoImagem - 1);
+                            botao.setIcon(icon);
+                        }
+                        if (cartasClicadas.size() == 2) {
+                            if (cartasClicadas.get(0).getImagem() != cartasClicadas.get(1).getImagem()) {
+                                try {
+                                    Thread.sleep(1000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                cartasClicadas.get(0).getBotao().setIcon(card);
+                                cartasJaClicadasDoJogo[cartasClicadas.get(0).getPosicao()] = false;
+                                cartasClicadas.get(1).getBotao().setIcon(card);
+                                cartasJaClicadasDoJogo[cartasClicadas.get(1).getPosicao()] = false;
+                            } else {
+                                pontos++;
+                                pt1.setText(pontos + "");
+                            }
+
+                            cartasClicadas = new ArrayList<Carta>();
+                        }
                     }
                 }
             });
         }
+
+        Font jogador = new Font("Arial", Font.BOLD, 20);
+        Font x1 = new Font("Arial", Font.BOLD, 40);
+
+        jogador1.setBounds(340, 40, 100, 25);
+        jogador1.setFont(jogador);
+        jogador1.setText(nome);
+
+        jogador2.setBounds(540, 40, 100, 25);
+        jogador2.setFont(jogador);
+
+        x.setBounds(475, 40, 100, 25);
+        x.setFont(x1);
+
+        pt1.setForeground(Color.WHITE);
+        pt1.setBounds(15, 2, 40, 40);
+        pt1.setFont(jogador);
+
+        pt2.setForeground(Color.WHITE);
+        pt2.setBounds(15, 2, 40, 40);
+        pt2.setFont(jogador);
+
+        ponto1.setBounds(280, 30, 40, 40);
+        ponto1.setBackground(Color.BLACK);
+        ponto1.setLayout(null);
+        ponto1.add(pt1);
+
+        ponto2.setBounds(650, 30, 40, 40);
+        ponto2.setBackground(Color.BLACK);
+        ponto2.setLayout(null);
+        ponto2.add(pt2);
+
+        painel.add(jogador1);
+        painel.add(jogador2);
+        painel.add(x);
+        painel.add(ponto1);
+        painel.add(ponto2);
 
         this.setBounds(240, 20, 987, 650);
 
