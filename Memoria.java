@@ -9,7 +9,7 @@ import java.util.List;
 import javax.swing.*;
 
 public class Memoria extends JFrame {
-
+    
     protected JLabel jogador1 = new JLabel("Jogador 1"),
             jogador2 = new JLabel("jogador 2"),
             x = new JLabel("X"),
@@ -63,9 +63,10 @@ public class Memoria extends JFrame {
     private JPanel painel;
 
     protected Memoria(String nome) {
+
         super("Jogo da Memória");
 
-        this.nome = nome;
+        this.nome  = nome;
 
         painel = new JPanel();
         this.add(painel);
@@ -200,4 +201,5 @@ public class Memoria extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
+    
 }
