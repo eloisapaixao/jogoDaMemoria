@@ -10,7 +10,7 @@ public class Servidor {
             ServerSocket pedido = new ServerSocket(8080);
 
             Socket conexao = pedido.accept();
-
+            
         } catch (Exception e) {
             // TODO: handle exception
         }

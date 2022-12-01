@@ -27,7 +27,6 @@ public class Entrar extends JFrame {
 
     String ip;
     Integer porta;
-    Socket conexao; 
 
     public Entrar() {
 
@@ -50,7 +49,6 @@ public class Entrar extends JFrame {
                 try {
                     ip = txtIP.getText();
                     porta = Integer.parseInt(txtPorta.getText());
-                    conexao = new Socket(ip, porta);
                 } catch (IOException e) {
                     JOptionPane.showMessageDialog(null,"Conexão falhou!");
                 }
