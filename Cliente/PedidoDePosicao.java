@@ -1,8 +1,8 @@
-public class PedidoDeOperacao extends Comunicado
+public class PedidoDePosicao extends Comunicado
 {
     private int posicao;
     
-    public PedidoDeOperacao (int posicao)
+    public PedidoDePosicao (int posicao)
     {
         this.posicao = posicao;
     }

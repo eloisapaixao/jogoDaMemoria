@@ -8,7 +8,7 @@ public class Servidor
     {
         if (args.length>1)
         {
-            System.err.println ("Uso esperado: java Servidor [PORTA]\n"); //thow
+            throw new Exception("Uso esperado: java Servidor [PORTA]\n"); //thow
             return;
         }
 
@@ -29,16 +29,13 @@ public class Servidor
         }
         catch (Exception erro)
         {
-            System.err.println ("Escolha uma porta apropriada e liberada para uso!\n"); //throw
+            throw new Exception ("Escolha uma porta apropriada e liberada para uso!\n"); //throw
             return;
         }
 
         for(;;)
         {
-            System.out.println ("O servidor esta ativo! Para desativa-lo,");
-            System.out.println ("use o comando \"desativar\"\n");
-            System.out.print   ("> "); //botão sair
-
+            throw new Exception ("O servidor esta ativo! Para desativa-lo, use o comando \"desativar\"\n");
             String comando=null;
             try
             {
@@ -46,7 +43,7 @@ public class Servidor
             }
             catch (Exception erro)
             {}
-
+            /*
             if (comando.toLowerCase().equals("desativar"))
             {
                 synchronized (usuarios)
@@ -70,7 +67,8 @@ public class Servidor
                 System.exit(0);
             } //desativa
             else
-                System.err.println ("Comando invalido!\n");
+                throw new Exception ("Comando invalido!\n");*/
+                //nessa parte comentada, eu teria que fazer um  desse para cada pedido?
         }
     }
 }
