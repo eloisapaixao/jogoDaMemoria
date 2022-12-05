@@ -59,7 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.Cliente">
+  <component name="RunManager" selected="Application.Servidor">
     <configuration name="Cliente" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Cliente.main" />
       <module name="jogoDaMemoria" />

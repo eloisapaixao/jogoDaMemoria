@@ -1,49 +1,46 @@
+package Servidor;
+
 import java.util.*;
 
-public class Servidor
-{
-	//public static String PORTA_PADRAO = "3000";
-	
-    public static void main (String[] args)
-    {
-        if (args.length>1)
+import controller.*;
+
+public class Servidor {
+    public static String PORTA_PADRAO = "3000";
+
+    public static void main(String[] args) throws Exception {
+        String porta = Servidor.PORTA_PADRAO; //porta
+        /*if (args.length>1)
         {
             throw new Exception("Uso esperado: java Servidor [PORTA]\n"); //thow
             return;
         }
 
-        String porta=Servidor.PORTA_PADRAO; //porta 
+
         
         if (args.length==1)
-            porta = args[0]; //sem
+            porta = args[0]; //sem*/
 
         ArrayList<Parceiro> usuarios =
-        new ArrayList<Parceiro> ();
+                new ArrayList<Parceiro>();
 
-        AceitadoraDeConexao aceitadoraDeConexao=null;
-        try
-        {
+        AceitadoraDeConexao aceitadoraDeConexao = null;
+        try {
             aceitadoraDeConexao =
-            new AceitadoraDeConexao (porta, usuarios);
+                    new AceitadoraDeConexao(porta, usuarios);
             aceitadoraDeConexao.start();
-        }
-        catch (Exception erro)
-        {
-            throw new Exception ("Escolha uma porta apropriada e liberada para uso!\n"); //throw
-            return;
+        } catch (Exception erro) {
+            throw new Exception("Escolha uma porta apropriada e liberada para uso!\n"); //throw
         }
 
-        for(;;)
-        {
-            throw new Exception ("O servidor esta ativo! Para desativa-lo, use o comando \"desativar\"\n");
-            String comando=null;
-            try
-            {
+        for (; ; ) {
+            System.out.println("O servidor esta ativo! Para desativa-lo, use o comando \"desativar\"\n");
+
+            String comando = null;
+            try {
                 comando = Teclado.getUmString();
+            } catch (Exception erro) {
             }
-            catch (Exception erro)
-            {}
-            /*
+
             if (comando.toLowerCase().equals("desativar"))
             {
                 synchronized (usuarios)
@@ -67,8 +64,8 @@ public class Servidor
                 System.exit(0);
             } //desativa
             else
-                throw new Exception ("Comando invalido!\n");*/
-                //nessa parte comentada, eu teria que fazer um  desse para cada pedido?
+                throw new Exception ("Comando invalido!\n");
+            //nessa parte comentada, eu teria que fazer um  desse para cada pedido?
         }
     }
 }

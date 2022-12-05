@@ -1,4 +1,7 @@
+package Cliente;
+
 import java.net.*;
+import controller.*;
 
 public class TratadoraDeComunicadoDeDesligamento extends Thread
 {

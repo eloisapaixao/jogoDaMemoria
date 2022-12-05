@@ -1,4 +1,6 @@
-import java.net.*;
+package Cliente;
+
+/*import java.net.*;
 import java.io.*;
 
 public class Cliente
@@ -7,90 +9,14 @@ public class Cliente
 	public int    porta;
 
 	public static void main (String[] args)
-	{
-        if (args.length>2)
-        {
-            System.err.println ("Uso esperado: java Cliente [HOST [PORTA]]\n");
-            return;
-        } //não tem
+	{*/
 
-        Socket conexao=null;
-        try
-        {
-			//obj classe entrar que passa a porta ip 
-            String host = Cliente.HOST_PADRAO;
-            int    porta= Cliente.PORTA_PADRAO; //diferente
 
-            if (args.length>0)
-                host = args[0];
-
-            if (args.length==2)
-                porta = Integer.parseInt(args[1]);
-
-            conexao = new Socket (host, porta);
-        } //depois
-        catch (Exception erro)
-        {
-            System.err.println ("Indique o servidor e a porta corretos!\n");
-            return;
-        }
-
-        ObjectOutputStream transmissor=null;
-        try
-        {
-            transmissor =
-            new ObjectOutputStream(
-            conexao.getOutputStream());
-        }
-        catch (Exception erro)
-        {
-            System.err.println ("Indique o servidor e a porta corretos!\n");
-            return;
-        }
-
-        ObjectInputStream receptor=null;
-        try
-        {
-            receptor =
-            new ObjectInputStream(
-            conexao.getInputStream());
-        }
-        catch (Exception erro)
-        {
-            System.err.println ("Indique o servidor e a porta corretos!\n");
-            return;
-        } //mantem
-
-        Parceiro servidor=null;
-        try
-        {
-            servidor =
-            new Parceiro (conexao, receptor, transmissor);
-        }
-        catch (Exception erro)
-        {
-            System.err.println ("Indique o servidor e a porta corretos!\n");
-            return;
-        }
-
-        TratadoraDeComunicadoDeDesligamento tratadoraDeComunicadoDeDesligamento = null;
-        try
-        {
-			tratadoraDeComunicadoDeDesligamento = new TratadoraDeComunicadoDeDesligamento (servidor);
-		}
-		catch (Exception erro)
-		{} // sei que servidor foi instanciado
-		
-        tratadoraDeComunicadoDeDesligamento.start();
-//mantem
-        char opcao=' ';
-        do
-        {
             /*System.out.print ("Sua opcao (+, -, *, /, =, [T]erminar)? ");
 
             try
             {
-				opcao = Character.toUpperCase(Teclado.getUmChar());
+				opcao = Character.toUpperCase(controller.Teclado.getUmChar());
 		    }
 		    catch (Exception erro)
 		    {
@@ -112,7 +38,7 @@ public class Cliente
 					System.out.print ("Valor? ");
 					try
 					{
-						valor = Teclado.getUmDouble();
+						valor = controller.Teclado.getUmDouble();
 						System.out.println();
 						
 						if (opcao=='/' && valor==0)
@@ -128,7 +54,7 @@ public class Cliente
 					}*/
 
 
-					servidor.receba (new PedidoDeOperacao (opcao,valor));/*
+					/*servidor.receba (new PedidoDeOperacao (opcao,valor));
 				}
 				else if (opcao=='=')
 				{
@@ -141,16 +67,16 @@ public class Cliente
 					while (!(comunicado instanceof Resultado));
 					Resultado resultado = (Resultado)servidor.envie ();
 					System.out.println ("Resultado atual: "+resultado.getValorResultante()+"\n");*/
-				}
-			}
-			catch (Exception erro)
-			{
-				System.err.println ("Erro de comunicacao com o servidor;");
-				System.err.println ("Tente novamente!");
-				System.err.println ("Caso o erro persista, termine o programa");
-				System.err.println ("e volte a tentar mais tarde!\n");
-			}//throw
-        }
+			// 	}
+			// }
+			// catch (Exception erro)
+			// {
+			// 	System.err.println ("Erro de comunicacao com o servidor;");
+			// 	System.err.println ("Tente novamente!");
+			// 	System.err.println ("Caso o erro persista, termine o programa");
+			// 	System.err.println ("e volte a tentar mais tarde!\n");
+			// }//throw
+        /*}
         while (opcao != 'T');
 
 		try
@@ -163,4 +89,4 @@ public class Cliente
 		System.out.println ("Obrigado por usar este programa!");
 		System.exit(0);
 	}
-}
+}*/
