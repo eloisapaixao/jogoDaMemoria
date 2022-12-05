@@ -27,6 +27,7 @@ public class Entrar extends JFrame {
 
     String ip;
     Integer porta;
+    String nome;
 
     public Entrar() {
 
@@ -44,14 +45,12 @@ public class Entrar extends JFrame {
 
         btnJogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                new Memoria(txtNome.getText());
-
-                try {
-                    ip = txtIP.getText();
-                    porta = Integer.parseInt(txtPorta.getText());
-                } catch (IOException e) {
-                    JOptionPane.showMessageDialog(null,"Conexão falhou!");
-                }
+                ip = txtIP.getText();
+                porta = Integer.parseInt(txtPorta.getText());
+                nome = txtNome.getText();
+                if(ip.equals("")|| txtPorta.getText().equals("") || nome.equals(""))
+                    throw new Exception("Campo vazio, verifique novamente!");
+                new Memoria(nome, ip, porta);
             }
         });
 
