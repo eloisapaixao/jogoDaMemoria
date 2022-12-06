@@ -27,6 +27,7 @@ public class Memoria extends JFrame {
     private String nome, ip;
     private int porta;
     private Integer pontos = 0;
+    private Parceiro servidorparca;
 
     private JPanel ponto1 = new JPanel(),
             ponto2 = new JPanel();
@@ -105,7 +106,7 @@ public class Memoria extends JFrame {
             throw new Exception("Indique o servidor e a porta corretos!\n");
         }
 
-        Parceiro servidorparca = null;
+        servidorparca = null;
         try {
             servidorparca =
                     new Parceiro(conexao, receptor, transmissor);
@@ -187,13 +188,31 @@ public class Memoria extends JFrame {
                     if (!cartasJaClicadasDoJogo[position]) {
                         cartasJaClicadasDoJogo[position] = true;
 
+                        try {
+                            servidorparca.receba(new PedidoDePosicao(10));
+                        } catch (Exception e) {
+
+                        }
+
+                        Comunicado comunicado = null;
+                        do{
+                            try {
+                                comunicado = servidorparca.espie();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        while (!(comunicado instanceof PedidoDeNome));
+
+                        System.out.println(((PedidoDeNome) comunicado).getNome());
+
                         if (cartasClicadas.size() < 2) {
+
                             cartasClicadas.add(cartas.get(position)); // Adiciona no array de cartas clicadas.
                             Integer posicaoImagem = cartas.get(position).getImagem(); // Pega a posição da imagem do array daqui.
                             Icon icon = imagens.get(posicaoImagem - 1); // Pega a imagem do array daqui.
 
                             botao.setIcon(icon); // Muda a imagem do botao, vulgo "gira a carta".
-
                         }
                         botao.validate();
                         botao.repaint();
