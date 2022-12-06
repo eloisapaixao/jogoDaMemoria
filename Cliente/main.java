@@ -1,5 +1,7 @@
 package Cliente;
 
+import controller.Baralho;
+
 public class main {
     public static void main(String[] args) {
         String oi = "oi";

@@ -9,10 +9,10 @@ import java.util.*;
 import controller.*;
 
 import javax.swing.*;
+import Cliente.*;
 
 public class SupervisoraDeConexao extends Thread {
     private Parceiro usuario;
-    private Socket conexao;
     private ArrayList<Parceiro> usuarios;
 
     private int vez = 0;
@@ -21,7 +21,7 @@ public class SupervisoraDeConexao extends Thread {
     private List<Carta> cartasClicadas = new ArrayList<Carta>();
 
     public SupervisoraDeConexao
-            (Socket conexao, ArrayList<Parceiro> usuarios)
+            (Parceiro conexao, ArrayList<Parceiro> usuarios)
             throws Exception {
         if (conexao == null)
             throw new Exception("Conexao ausente");
@@ -29,46 +29,17 @@ public class SupervisoraDeConexao extends Thread {
         if (usuarios == null)
             throw new Exception("Usuarios ausentes");
 
-        this.conexao = conexao;
+        this.usuario = conexao;
         this.usuarios = usuarios;
     }
 
     public void run() {
-
-        ObjectOutputStream transmissor;
-        try {
-            transmissor =
-                    new ObjectOutputStream(
-                            this.conexao.getOutputStream());
-        } catch (Exception erro) {
-            return;
-        }
-
-        ObjectInputStream receptor = null;
-        try {
-            receptor = new ObjectInputStream(this.conexao.getInputStream());
-        } catch (Exception err0) {
-            try {
-                transmissor.close();
-            } catch (Exception falha) {
-            }
-
-            return;
-        }
-        try {
-            this.usuario =
-                    new Parceiro(this.conexao,
-                            receptor,
-                            transmissor);
-        } catch (Exception erro) {
-        }
-
         try {
             synchronized (this.usuarios) {
                 this.usuarios.add(this.usuario);
             }
 
-            for (; ;) {
+            while(true) {
                 System.out.println(usuarios.size());
                 Comunicado comunicado = this.usuarios.get(0/*vez*/).envie();
 
@@ -82,6 +53,30 @@ public class SupervisoraDeConexao extends Thread {
                     synchronized (usuarios) {
                         for (int i = 0; i < usuarios.size(); i++) {
                             usuarios.get(i).receba(new PedidoDeNome("caju"));
+                        }
+                    }
+                }
+                else if(comunicado instanceof  PedidoDePontos)
+                {
+                    PedidoDePontos pedidoDePontos = (PedidoDePontos) comunicado;
+
+                    System.out.println(pedidoDePontos.getPonto());
+
+                    synchronized (usuarios) {
+                        for (int i = 0; i < usuarios.size(); i++) {
+                            usuarios.get(i).receba(new PedidoDeNome("caju"));
+                        }
+                    }
+                }
+                else if(comunicado instanceof  Resultado)
+                {
+                    Resultado resultado = (Resultado) comunicado;
+
+                    System.out.println(resultado.getPessoaVencedora());
+                    String ganhador = resultado.getPessoaVencedora();
+                    synchronized (usuarios) {
+                        for (int i = 0; i < usuarios.size(); i++) {
+                            usuarios.get(i).receba(new PedidoDeNome(ganhador));
                         }
                     }
                 }
@@ -111,8 +106,7 @@ public class SupervisoraDeConexao extends Thread {
             }
         } catch (Exception erro) {
             try {
-                transmissor.close();
-                receptor.close();
+                usuario.adeus();
             } catch (Exception falha) {
             } // so tentando fechar antes de acabar a thread
 

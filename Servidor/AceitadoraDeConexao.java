@@ -1,5 +1,7 @@
 package Servidor;
 
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.*;
 import java.util.*;
 
@@ -9,6 +11,7 @@ public class AceitadoraDeConexao extends Thread
 {
     private ServerSocket        pedido;
     private ArrayList<Parceiro> usuarios;
+    private Baralho             baralho;
 
     public AceitadoraDeConexao
     (String porta, ArrayList<Parceiro> usuarios)
@@ -31,11 +34,12 @@ public class AceitadoraDeConexao extends Thread
             throw new Exception ("Usuarios ausentes");
 
         this.usuarios = usuarios;
+        this.baralho = new Baralho();
     }
 
     public void run ()
     {
-        for(;;)
+        while(true)
         {
             Socket conexao=null;
             try
@@ -50,8 +54,35 @@ public class AceitadoraDeConexao extends Thread
             SupervisoraDeConexao supervisoraDeConexao=null;
             try
             {
-                supervisoraDeConexao =
-                new SupervisoraDeConexao (conexao, usuarios);
+                ObjectOutputStream transmissor;
+                try {
+                    transmissor =
+                            new ObjectOutputStream(
+                                    conexao.getOutputStream());
+                } catch (Exception erro) {
+                    return;
+                }
+
+                ObjectInputStream receptor = null;
+                try {
+                    receptor = new ObjectInputStream(conexao.getInputStream());
+                } catch (Exception err0) {
+                    try {
+                        transmissor.close();
+                    } catch (Exception falha) {
+                    }
+
+                    return;
+                }
+                try {
+                    Parceiro jogador = new Parceiro(conexao,
+                            receptor,
+                            transmissor);
+                    jogador.receba(this.baralho);
+                    supervisoraDeConexao =
+                            new SupervisoraDeConexao (jogador, usuarios);
+                } catch (Exception erro) {
+                }
             }
             catch (Exception erro)
             {} 

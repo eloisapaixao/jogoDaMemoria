@@ -32,14 +32,13 @@ public class Servidor {
             throw new Exception("Escolha uma porta apropriada e liberada para uso!\n"); //throw
         }
 
-        for (; ; ) {
+        while (true) {
             System.out.println("O servidor esta ativo! Para desativa-lo, use o comando \"desativar\"\n");
 
             String comando = null;
             try {
                 comando = Teclado.getUmString();
-            } catch (Exception erro) {
-            }
+            } catch (Exception erro) {}
 
             if (comando.toLowerCase().equals("desativar"))
             {

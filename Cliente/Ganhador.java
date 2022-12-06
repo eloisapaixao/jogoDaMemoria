@@ -1,9 +1,8 @@
 package Cliente;
 
 import java.awt.*;
-
 import javax.swing.*;
-public class Ganhador extends JFrame{
+public class Ganhador extends JFrame {
     protected static final long serialVersionUID = 1L;
 
     protected JButton btnJogar = new JButton("Jogar novamente");

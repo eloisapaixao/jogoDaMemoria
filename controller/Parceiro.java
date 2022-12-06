@@ -42,6 +42,7 @@ public class Parceiro
         } //vai mandar a acao para o servidor
         catch (IOException erro)
         {
+            erro.printStackTrace();
             throw new Exception ("Erro de transmissao");
         }
     }
@@ -58,6 +59,7 @@ public class Parceiro
         }
         catch (Exception erro)
         {
+            erro.printStackTrace();
             throw new Exception ("Erro de recepcao");
         }
     } //permanece

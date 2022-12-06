@@ -38,23 +38,6 @@ public class Memoria extends JFrame {
     private List<Carta> cartasClicadas = new ArrayList<Carta>();
     private Icon card = new ImageIcon("imagens/card.png");
 
-    public void embaralharCartas() {
-        Integer[] imagensCartas = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9};
-
-        List<Integer> intList = Arrays.asList(imagensCartas);
-
-        Collections.shuffle(intList);
-
-        intList.toArray(imagensCartas);
-
-        for (int i = 0; i < 18; i++) {
-            JButton botao = new JButton(card);
-            Carta carta = new Carta(botao, imagensCartas[i], i);
-            cartas.add(carta);
-
-        }
-    }
-
     public void definirImagens() {
         Icon[] icon = {new ImageIcon("imagens/turmaDaMonica_resized.jpg"),
                 new ImageIcon("imagens/looney-tunes_resized.jpg"),
@@ -114,6 +97,18 @@ public class Memoria extends JFrame {
             throw new Exception("Indique o servidor e a porta corretos!\n");
         }
 
+        Comunicado baralho = servidorparca.envie();
+        if(baralho instanceof Baralho) {
+            Baralho b = ((Baralho)(baralho));
+            for (int i = 0; i < 18; i++) {
+                JButton botao = new JButton(card);
+                Carta carta = new Carta(botao, b.cartas[i], i);
+                cartas.add(carta);
+            }
+        } else {
+                System.out.println("error");
+                System.exit(0);
+            }
         /*TratadoraDeComunicadoDeDesligamento tratadoraDeComunicadoDeDesligamento = null;
         try {
             tratadoraDeComunicadoDeDesligamento = new TratadoraDeComunicadoDeDesligamento(servidor);
@@ -165,7 +160,6 @@ public class Memoria extends JFrame {
         Integer[] posicao18 = {810, 440, 150, 150};
         posicoes.add(posicao18);
 
-        embaralharCartas();
         definirImagens();
 
         int cartasSize = cartas.size();
@@ -189,7 +183,7 @@ public class Memoria extends JFrame {
                         cartasJaClicadasDoJogo[position] = true;
 
                         try {
-                            servidorparca.receba(new PedidoDePosicao(10));
+                            servidorparca.receba(new PedidoDePosicao(position));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -241,11 +235,21 @@ public class Memoria extends JFrame {
                             } else {
                                 pontos++;
                                 pt1.setText(pontos + "");
+                                try {
+                                    servidorparca.receba(new PedidoDePontos(pontos));
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
 
                                 if(pontos==9) {
                                     try {
                                         Thread.sleep(1000);
                                     } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                    try {
+                                        servidorparca.receba(new Resultado(nome));
+                                    } catch (Exception e) {
                                         e.printStackTrace();
                                     }
                                     new Ganhador(nome);
