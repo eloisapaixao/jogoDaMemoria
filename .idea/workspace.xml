@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63f510a4-7778-475d-b724-af60fdfb9503" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/Entrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/Entrar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente/Memoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/Memoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imagens/card.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Servidor/SupervisoraDeConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor/SupervisoraDeConexao.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,20 +32,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/WIN10/Documents/GitHub/jogoDaMemoria",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
-  <component name="RunManager" selected="Application.Cliente">
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager" selected="Application.Cliente1">
     <configuration name="Cliente" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Cliente.main" />
       <module name="jogoDaMemoria" />

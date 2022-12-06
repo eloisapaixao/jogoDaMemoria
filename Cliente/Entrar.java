@@ -45,28 +45,24 @@ public class Entrar extends JFrame {
 
         btnJogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ip = txtIP.getText();
+                porta = Integer.parseInt(txtPorta.getText());
+                nome = txtNome.getText();
                 try {
-                    new Memoria(txtNome.getText());
+                    new Memoria(nome, ip, porta);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
-//                ip = txtIP.getText();
-//                porta = Integer.parseInt(txtPorta.getText());
-//                nome = txtNome.getText();
-//
-//                if (ip.equals("") || txtPorta.getText().equals("") || nome.equals("")) {
-//                    try {
-//                        throw new Exception("Campo vazio, verifique novamente!");
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//
-//                try {
-//                    new Memoria(nome, ip, porta);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
+
+
+                if (ip.equals("") || txtPorta.getText().equals("") || nome.equals("")) {
+                    try {
+                        throw new Exception("Campo vazio, verifique novamente!");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
             }
         });
 

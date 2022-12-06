@@ -8,11 +8,17 @@ import java.util.*;
 
 import controller.*;
 
+import javax.swing.*;
+
 public class SupervisoraDeConexao extends Thread {
     private Parceiro usuario;
     private Socket conexao;
     private ArrayList<Parceiro> usuarios;
+
     private int vez = 0;
+    private List<Carta> cartas = new ArrayList<Carta>();
+    private List<Icon> imagens = new ArrayList<Icon>();
+    private List<Carta> cartasClicadas = new ArrayList<Carta>();
 
     public SupervisoraDeConexao
             (Socket conexao, ArrayList<Parceiro> usuarios)
@@ -62,7 +68,8 @@ public class SupervisoraDeConexao extends Thread {
                 this.usuarios.add(this.usuario);
             }
 
-            for (; ; ) {
+            for (; ;) {
+                System.out.println(usuarios.size());
                 Comunicado comunicado = this.usuarios.get(vez).envie();
 
                 if (comunicado == null)
@@ -70,7 +77,13 @@ public class SupervisoraDeConexao extends Thread {
                 else if (comunicado instanceof PedidoDePosicao) {
                     PedidoDePosicao pedidoDePosicao = (PedidoDePosicao) comunicado;
 
+                    System.out.println(pedidoDePosicao.getPosicao());
 
+                    synchronized (usuarios) {
+                        for (int i = 0; i < usuarios.size(); i++) {
+                            usuarios.get(i).receba(new PedidoDeNome("caju"));
+                        }
+                    }
                 }
 //                else if (comunicado instanceof PedidoDeNome)
 //                {
