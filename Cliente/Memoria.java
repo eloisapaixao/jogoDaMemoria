@@ -72,46 +72,46 @@ public class Memoria extends JFrame {
 
     JPanel painel;
 
-    protected Memoria(String nome) throws Exception {
+    protected Memoria(String nome, String ip, int porta) throws Exception {
 
         super("Jogo da Memória");
 
        this.nome = nome;
-//        this.ip = ip;
-//        this.porta = porta;
-//
-//        Socket conexao = null;
-//        try {
-//            conexao = new Socket(this.ip, this.porta);
-//        } catch (Exception erro) {
-//            throw new Exception("Indique o servidor e a porta corretos!\n");
-//        }
-//
-//        ObjectOutputStream transmissor = null;
-//        try {
-//            transmissor =
-//                    new ObjectOutputStream(
-//                            conexao.getOutputStream());
-//        } catch (Exception erro) {
-//            throw new Exception("Indique o servidor e a porta corretos!\n");
-//        }
-//
-//        ObjectInputStream receptor = null;
-//        try {
-//            receptor =
-//                    new ObjectInputStream(
-//                            conexao.getInputStream());
-//        } catch (Exception erro) {
-//            throw new Exception("Indique o servidor e a porta corretos!\n");
-//        }
-//
-//        Parceiro servidorparca = null;
-//        try {
-//            servidorparca =
-//                    new Parceiro(conexao, receptor, transmissor);
-//        } catch (Exception erro) {
-//            throw new Exception("Indique o servidor e a porta corretos!\n");
-//        }
+        this.ip = ip;
+        this.porta = porta;
+
+        Socket conexao = null;
+        try {
+            conexao = new Socket(this.ip, this.porta);
+        } catch (Exception erro) {
+            throw new Exception("porta: " + porta+ " ip: "+ip);
+        }
+
+        ObjectOutputStream transmissor = null;
+        try {
+            transmissor =
+                    new ObjectOutputStream(
+                            conexao.getOutputStream());
+        } catch (Exception erro) {
+            throw new Exception("Indique o servidor e a porta corretos!\n");
+        }
+
+        ObjectInputStream receptor = null;
+        try {
+            receptor =
+                    new ObjectInputStream(
+                            conexao.getInputStream());
+        } catch (Exception erro) {
+            throw new Exception("Indique o servidor e a porta corretos!\n");
+        }
+
+        Parceiro servidorparca = null;
+        try {
+            servidorparca =
+                    new Parceiro(conexao, receptor, transmissor);
+        } catch (Exception erro) {
+            throw new Exception("Indique o servidor e a porta corretos!\n");
+        }
 
         /*TratadoraDeComunicadoDeDesligamento tratadoraDeComunicadoDeDesligamento = null;
         try {

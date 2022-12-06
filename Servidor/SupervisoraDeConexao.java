@@ -12,7 +12,9 @@ public class SupervisoraDeConexao extends Thread {
     private Parceiro usuario;
     private Socket conexao;
     private ArrayList<Parceiro> usuarios;
+
     private int vez = 0;
+    private ArrayList<Carta> cartas;
 
     public SupervisoraDeConexao
             (Socket conexao, ArrayList<Parceiro> usuarios)
