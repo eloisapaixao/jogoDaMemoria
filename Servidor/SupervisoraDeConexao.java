@@ -70,7 +70,7 @@ public class SupervisoraDeConexao extends Thread {
 
             for (; ;) {
                 System.out.println(usuarios.size());
-                Comunicado comunicado = this.usuarios.get(vez).envie();
+                Comunicado comunicado = this.usuarios.get(0/*vez*/).envie();
 
                 if (comunicado == null)
                     return;

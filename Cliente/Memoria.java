@@ -191,7 +191,7 @@ public class Memoria extends JFrame {
                         try {
                             servidorparca.receba(new PedidoDePosicao(10));
                         } catch (Exception e) {
-
+                            e.printStackTrace();
                         }
 
                         Comunicado comunicado = null;
