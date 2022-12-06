@@ -1,46 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="63f510a4-7778-475d-b724-af60fdfb9503" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cliente/Memoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Carta.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Carta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/Comunicado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/ComunicadoDeDesligamento.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/Parceiro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/PedidoDeNome.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/PedidoDePontos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/PedidoDePosicao.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/PedidoDePosicao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/PedidoDeResultado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/PedidoParaSair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/Resultado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/Teclado.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Teclado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/TratadoraDeComunicadoDeDesligamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/TratadoraDeComunicadoDeDesligamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/Entrar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JFrameComFundo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/JFrameComFundo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPanelComFundo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/JPanelComFundo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Memoria.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/AceitadoraDeConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor/AceitadoraDeConexao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/Comunicado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/ComunicadoDeDesligamento.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/Parceiro.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/PedidoDeNome.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/PedidoDePontos.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/PedidoDePosicao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/PedidoDeResultado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/PedidoParaSair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/Resultado.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor/Servidor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/SupervisoraDeConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor/SupervisoraDeConexao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente/Entrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/Entrar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente/Memoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/Memoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imagens/card.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,12 +35,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/WIN10/Documents/GitHub/jogoDaMemoria",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager" selected="Application.Cliente">
     <configuration name="Cliente" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Cliente.main" />
@@ -95,8 +84,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670242123207</updated>
+      <workItem from="1670265788774" duration="12298000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

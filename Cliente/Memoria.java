@@ -35,7 +35,7 @@ public class Memoria extends JFrame {
     private List<Carta> cartas = new ArrayList<Carta>();
     private List<Icon> imagens = new ArrayList<Icon>();
     private List<Carta> cartasClicadas = new ArrayList<Carta>();
-    private Icon card = new ImageIcon("imagens/card.jpg");
+    private Icon card = new ImageIcon("imagens/card.png");
 
     public void embaralharCartas() {
         Integer[] imagensCartas = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9};
@@ -55,15 +55,15 @@ public class Memoria extends JFrame {
     }
 
     public void definirImagens() {
-        Icon[] icon = {new ImageIcon("imagens/turmaDaMonica.jpg"),
-                new ImageIcon("C:/Users/u22127/Documents/GitHub/jogoDaMemoria/imagens/looney-tunes.jpg"),
-                new ImageIcon("imagens/padrinhosMagicos.jpg"),
-                new ImageIcon("imagens/perry-o-ornitorrinco.png"),
-                new ImageIcon("imagens/Rei-LEao.jpg"),
-                new ImageIcon("imagens/scoobDoo.jpg"),
-                new ImageIcon("imagens/stitch.jpg"),
-                new ImageIcon("imagens/mickey.jpg"),
-                new ImageIcon("imagens/tresespias.jpg")
+        Icon[] icon = {new ImageIcon("imagens/turmaDaMonica_resized.jpg"),
+                new ImageIcon("imagens/looney-tunes_resized.jpg"),
+                new ImageIcon("imagens/padrinhosMagicos_resized.jpg"),
+                new ImageIcon("imagens/perry-o-ornitorrinco_resized.png"),
+                new ImageIcon("imagens/Rei-LEao_resized.jpg"),
+                new ImageIcon("imagens/scoobDoo_resized.jpg"),
+                new ImageIcon("imagens/toyStory_resized.webp"),
+                new ImageIcon("imagens/mickey_resized.jpg"),
+                new ImageIcon("imagens/tresespias_resized.jpg")
         };
         for (int i = 0; i < 9; i++) {
             imagens.add(icon[i]);
@@ -72,46 +72,46 @@ public class Memoria extends JFrame {
 
     JPanel painel;
 
-    protected Memoria(String nome, String ip, int porta) throws Exception {
+    protected Memoria(String nome) throws Exception {
 
         super("Jogo da Memória");
 
-        this.nome = nome;
-        this.ip = ip;
-        this.porta = porta;
-
-        Socket conexao = null;
-        try {
-            conexao = new Socket(this.ip, this.porta);
-        } catch (Exception erro) {
-            throw new Exception("Indique o servidor e a porta corretos!\n");
-        }
-
-        ObjectOutputStream transmissor = null;
-        try {
-            transmissor =
-                    new ObjectOutputStream(
-                            conexao.getOutputStream());
-        } catch (Exception erro) {
-            throw new Exception("Indique o servidor e a porta corretos!\n");
-        }
-
-        ObjectInputStream receptor = null;
-        try {
-            receptor =
-                    new ObjectInputStream(
-                            conexao.getInputStream());
-        } catch (Exception erro) {
-            throw new Exception("Indique o servidor e a porta corretos!\n");
-        }
-
-        Parceiro servidorparca = null;
-        try {
-            servidorparca =
-                    new Parceiro(conexao, receptor, transmissor);
-        } catch (Exception erro) {
-            throw new Exception("Indique o servidor e a porta corretos!\n");
-        }
+       this.nome = nome;
+//        this.ip = ip;
+//        this.porta = porta;
+//
+//        Socket conexao = null;
+//        try {
+//            conexao = new Socket(this.ip, this.porta);
+//        } catch (Exception erro) {
+//            throw new Exception("Indique o servidor e a porta corretos!\n");
+//        }
+//
+//        ObjectOutputStream transmissor = null;
+//        try {
+//            transmissor =
+//                    new ObjectOutputStream(
+//                            conexao.getOutputStream());
+//        } catch (Exception erro) {
+//            throw new Exception("Indique o servidor e a porta corretos!\n");
+//        }
+//
+//        ObjectInputStream receptor = null;
+//        try {
+//            receptor =
+//                    new ObjectInputStream(
+//                            conexao.getInputStream());
+//        } catch (Exception erro) {
+//            throw new Exception("Indique o servidor e a porta corretos!\n");
+//        }
+//
+//        Parceiro servidorparca = null;
+//        try {
+//            servidorparca =
+//                    new Parceiro(conexao, receptor, transmissor);
+//        } catch (Exception erro) {
+//            throw new Exception("Indique o servidor e a porta corretos!\n");
+//        }
 
         /*TratadoraDeComunicadoDeDesligamento tratadoraDeComunicadoDeDesligamento = null;
         try {
@@ -194,24 +194,24 @@ public class Memoria extends JFrame {
 
                             botao.setIcon(icon); // Muda a imagem do botao, vulgo "gira a carta".
 
-                            painel.validate();
-                            painel.repaint();
                         }
+                        botao.validate();
+                        botao.repaint();
                         if (cartasClicadas.size() == 2) {
                             if (cartasClicadas.get(0).getImagem() != cartasClicadas.get(1).getImagem()) {
-                                /*try {
+                                try {
                                     Thread.sleep(1000);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
-                                }*/
+                                }
 
-                                Timer timer = new Timer(1000, new ActionListener(){
+                                /*Timer timer = new Timer(1000, new ActionListener(){
                                     public void actionPerformed(ActionEvent e) {
                                         // do something
                                     }
                                 });
                                 timer.setRepeats(false);
-                                timer.start();
+                                timer.start();*/
 
                                 cartasClicadas.get(0).getBotao().setIcon(card); // Desvira
                                 cartasJaClicadasDoJogo[cartasClicadas.get(0).getPosicao()] = false; // Marca como desvirada.
@@ -222,6 +222,15 @@ public class Memoria extends JFrame {
                             } else {
                                 pontos++;
                                 pt1.setText(pontos + "");
+
+                                if(pontos==9) {
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                    new Ganhador(nome);
+                                }
                             }
 
                             cartasClicadas = new ArrayList<Carta>(); // Tá ok
