@@ -15,7 +15,6 @@ public class Servidor {
             return;
         }
 
-
         
         if (args.length==1)
             porta = args[0]; //sem*/

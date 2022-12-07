@@ -48,7 +48,7 @@ public class SupervisoraDeConexao extends Thread {
                 else if (comunicado instanceof PedidoDePosicao) {
                     PedidoDePosicao pedidoDePosicao = (PedidoDePosicao) comunicado;
 
-                    System.out.println(pedidoDePosicao.getPosicao());
+                    System.out.println("posição: "+pedidoDePosicao.getPosicao());
 
                     synchronized (usuarios) {
                         for (int i = 0; i < usuarios.size(); i++) {

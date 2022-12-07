@@ -5,24 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63f510a4-7778-475d-b724-af60fdfb9503" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/Baralho.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/Ganhador.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/Ganhador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente/Memoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/Memoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente/Cliente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente/Entrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/Entrar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Servidor/AceitadoraDeConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor/AceitadoraDeConexao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClienteJogoDaMemoria/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClienteJogoDaMemoria/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClienteJogoDaMemoria/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClienteJogoDaMemoria/ClienteJogoDaMemoria.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Servidor/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor/Servidor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Servidor/SupervisoraDeConexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Servidor/SupervisoraDeConexao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Parceiro.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Parceiro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jogoDaMemoria/Cliente/Ganhador$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jogoDaMemoria/Cliente/Ganhador$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jogoDaMemoria/Cliente/Ganhador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jogoDaMemoria/Cliente/Ganhador.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jogoDaMemoria/Cliente/Memoria$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jogoDaMemoria/Cliente/Memoria$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jogoDaMemoria/Cliente/Memoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jogoDaMemoria/Cliente/Memoria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/ServidorJogoDaMemoria.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/src/Entrar.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/src/Memoria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/src/controller/Comunicado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/src/controller/Parceiro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/src/controller/PedidoDeNome.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/src/controller/PedidoDePontos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/src/controller/PedidoDePosicao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/src/controller/PedidoDeResultado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ServidorJogoDaMemoria/src/controller/PedidoDeSair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/jogoDaMemoria/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jogoDaMemoria/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/jogoDaMemoria/Cliente/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jogoDaMemoria/Cliente/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jogoDaMemoria/Servidor/AceitadoraDeConexao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jogoDaMemoria/Servidor/AceitadoraDeConexao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/jogoDaMemoria/Servidor/Servidor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jogoDaMemoria/Servidor/Servidor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/jogoDaMemoria/Servidor/SupervisoraDeConexao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jogoDaMemoria/Servidor/SupervisoraDeConexao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/jogoDaMemoria/controller/Parceiro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/jogoDaMemoria/controller/Parceiro.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +63,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/socket-hangman-main" />
   </component>
-  <component name="RunManager" selected="Application.Cliente1">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Cliente" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Cliente">
     <configuration name="Cliente" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Cliente.main" />
       <module name="jogoDaMemoria" />
@@ -105,5 +121,15 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.Exception" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

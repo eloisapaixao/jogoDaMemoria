@@ -49,7 +49,10 @@ public class Entrar extends JFrame {
                 porta = Integer.parseInt(txtPorta.getText());
                 nome = txtNome.getText();
                 try {
+                    fecharJanela();
                     new Memoria(nome, ip, porta);
+                    fecharJanela();
+
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -65,6 +68,8 @@ public class Entrar extends JFrame {
 
             }
         });
+
+
 
         lbNome.setBounds(440, 260, 150, 90);
         lbNome.setForeground(Color.WHITE);
@@ -96,5 +101,9 @@ public class Entrar extends JFrame {
         jff.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jff.setVisible(true);
 
+    }
+    public void fecharJanela()
+    {
+        this.dispose();
     }
 }
