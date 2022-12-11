@@ -24,7 +24,7 @@ public class Entrar extends JFrame {
 
         protected JPanel jpanel = new JPanel();
 
-        JFrameComFundo jff = new JFrameComFundo("Jogo da Memória", "fundo.jpg");
+        JFrameComFundo jff = new JFrameComFundo("Jogo da Memória", "C:/Users/balve/Documents/GitHub/jogoDaMemoria/ClienteJogoDaMemoria/src/fundo.jpg");
 
         String ip;
         Integer porta;

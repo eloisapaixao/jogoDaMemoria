@@ -18,29 +18,29 @@ public class Memoria extends JFrame implements Runnable {
     protected JLabel jogador1 = new JLabel("Jogador 1"),
             jogador2 = new JLabel("jogador 2");
 
-    Icon[] botoesIcon = {new ImageIcon("imagens/turmaDaMonica_resized.jpg"),
-            new ImageIcon("imagens/looney-tunes_resized.jpg"),
-            new ImageIcon("imagens/padrinhosMagicos_resized.jpg"),
-            new ImageIcon("imagens/perry-o-ornitorrinco_resized.png"),
-            new ImageIcon("imagens/Rei-LEao_resized.jpg"),
-            new ImageIcon("imagens/scoobDoo_resized.jpg"),
-            new ImageIcon("imagens/toyStory_resized.webp"),
-            new ImageIcon("imagens/mickey_resized.jpg"),
-            new ImageIcon("imagens/tresespias_resized.jpg")
+    Icon[] botoesIcon = {new ImageIcon("C:/Users/balve/Documents/GitHub/jogoDaMemoria/ClienteJogoDaMemoria/src/imagens/turmaDaMonica_resized.jpg"),
+            new ImageIcon("C:/Users/balve/Documents/GitHub/jogoDaMemoria/ClienteJogoDaMemoria/src/imagens/looney-tunes_resized.jpg"),
+            new ImageIcon("C:/Users/balve/Documents/GitHub/jogoDaMemoria/ClienteJogoDaMemoria/src/imagens/mickey_resized.jpg"),
+            new ImageIcon("C:/Users/balve/Documents/GitHub/jogoDaMemoria/ClienteJogoDaMemoria/src/imagens/padrinhosMagicos_resized.jpg"),
+            new ImageIcon("C:/Users/balve/Documents/GitHub/jogoDaMemoria/ClienteJogoDaMemoria/src/imagens/perry-o-ornitorrinco_resized.png"),
+            new ImageIcon("C:/Users/balve/Documents/GitHub/jogoDaMemoria/ClienteJogoDaMemoria/src/imagens/Rei-LEao_resized.jpg"),
+            new ImageIcon("C:/Users/balve/Documents/GitHub/jogoDaMemoria/ClienteJogoDaMemoria/src/imagens/scoobDoo_resized.jpg"),
+            new ImageIcon("C:/Users/balve/Documents/GitHub/jogoDaMemoria/ClienteJogoDaMemoria/src/imagens/toyStory_resized.webp"),
+            new ImageIcon("C:/Users/balve/Documents/GitHub/jogoDaMemoria/ClienteJogoDaMemoria/src/imagens/tresespias_resized.jpg")
     };
 
-    String[] botoesNome =
-            {
-                "Turma da Mônica",
-                "Looney Tunes",
-                "Os Padrinhos Mágicos",
-                "Perry o Ornitorrinco",
-                "O Rei Leão",
-                "Scooby Doo",
-                "Toy Story",
-                "Mickey",
-                "Três Espiãs Demais"
-            };
+//    String[] botoesNome =
+//            {
+//                "Turma da Mônica",
+//                "Looney Tunes",
+//                "Os Padrinhos Mágicos",
+//                "Perry o Ornitorrinco",
+//                "O Rei Leão",
+//                "Scooby Doo",
+//                "Toy Story",
+//                "Mickey",
+//                "Três Espiãs Demais"
+//            };
     private Parceiro servidor;
     private JLabel x = new JLabel("X");
     private JLabel pt1 = new JLabel("0");
@@ -58,7 +58,7 @@ public class Memoria extends JFrame implements Runnable {
     private List<Carta> cartas = new ArrayList<Carta>();
     private List<Icon> imagens = new ArrayList<Icon>();
     private List<Carta> cartasClicadas = new ArrayList<Carta>();
-    private Icon card = new ImageIcon("imagens/card.png");
+    private Icon card = new ImageIcon("C:/Users/balve/Documents/GitHub/jogoDaMemoria/ClienteJogoDaMemoria/src/imagens/card.png");
     JPanel painel;
 
     protected Memoria(Parceiro servidor, String nome) throws Exception {
@@ -113,7 +113,7 @@ public class Memoria extends JFrame implements Runnable {
         posicoes.add(posicao18);
 
         for (int i = 0; i < 18; i++) {
-            JButton botao = new JButton();
+            JButton botao = new JButton(card);
             painel.add(botao);
             botao.setBounds(
                     posicoes.get(i)[0],
@@ -204,7 +204,7 @@ public class Memoria extends JFrame implements Runnable {
                     else
                         CartaInB = carta.POSICAO;
 
-                    ((JButton)(botao)).setText(botoesNome[indexCarta]);
+                    ((JButton)(botao)).setIcon(botoesIcon[indexCarta]);
                 }
                 if(comunicado instanceof EnviaPontos)
                 {
@@ -229,6 +229,7 @@ public class Memoria extends JFrame implements Runnable {
                     turn = com.VEZ;
                     CartaInA = null;
                     CartaInB = null;
+                    Thread.sleep(1000);
                     if(turn != playerIndex)
                     {
                         JOptionPane.showMessageDialog(null, "Aguarde sua vez");
@@ -236,7 +237,7 @@ public class Memoria extends JFrame implements Runnable {
                     for (int i = 0; i < 18; i++) {
                         if(cartasJaClicadasDoJogo[i]) continue;
                         Component botao = painel.getComponent(i);
-                        ((JButton)(botao)).setText(" ");
+                        ((JButton)(botao)).setIcon(card);
                     }
                 }
                 if(comunicado instanceof EnviaResultado)

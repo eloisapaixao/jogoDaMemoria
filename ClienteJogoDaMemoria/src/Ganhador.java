@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Ganhador extends JFrame{
     protected static final long serialVersionUID = 1L;
 
-    protected JButton btnJogar = new JButton("Jogar novamente");
+  //  protected JButton btnJogar = new JButton("Jogar novamente");
     protected JLabel fimDeJogo = new JLabel("Fim de Jogo!!!"),
             lbComemoracao = new JLabel("O ganhador foi "),
             lbNome = new JLabel();
@@ -13,7 +13,7 @@ public class Ganhador extends JFrame{
 
     protected JPanel jpanel = new JPanel();
 
-    JFrameComFundo jff = new JFrameComFundo("Jogo da Memória", "imagens/FundoFesta_resized.png");
+    JFrameComFundo jff = new JFrameComFundo("Jogo da Memória", "C:/Users/balve/Documents/GitHub/jogoDaMemoria/ClienteJogoDaMemoria/src/imagens/FundoFesta_resized.png");
 
     String nomeGanhador;
 
@@ -47,19 +47,19 @@ public class Ganhador extends JFrame{
         lbNome.setForeground(Color.BLACK);
         jff.add(lbNome);
 
-        btnJogar.setBounds(480, 290, 150, 30);
-        btnJogar.setForeground(Color.WHITE);
-        jff.add(btnJogar);
+//        btnJogar.setBounds(480, 290, 150, 30);
+//        btnJogar.setForeground(Color.WHITE);
+//        jff.add(btnJogar);
 
-        btnJogar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    new Entrar();
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
+//        btnJogar.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                try {
+//                    new Entrar();
+//                } catch (Exception e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
+//        });
 
         jpanel.setBounds(300, 110, 500, 250);
         jpanel.setBackground(Color.YELLOW);
@@ -69,8 +69,8 @@ public class Ganhador extends JFrame{
         jff.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jff.setVisible(true);
 
-        btnJogar.setOpaque(true);
-        btnJogar.setBackground(roxo);
+//        btnJogar.setOpaque(true);
+//        btnJogar.setBackground(roxo);
 
 
     }
