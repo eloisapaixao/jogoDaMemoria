@@ -18,17 +18,29 @@ public class Memoria extends JFrame implements Runnable {
     protected JLabel jogador1 = new JLabel("Jogador 1"),
             jogador2 = new JLabel("jogador 2");
 
-    String[] botoesNomes = {
-            "Turma da Mônica",
-            "Looney Tunes",
-            "Os Padrinhos Mágicos",
-            "Perry o Ornitorrinco",
-            "O Rei Leão",
-            "Scooby Doo",
-            "Toy Story",
-            "Mickey",
-            "Três Espiãs Demais"
+    Icon[] botoesIcon = {new ImageIcon("imagens/turmaDaMonica_resized.jpg"),
+            new ImageIcon("imagens/looney-tunes_resized.jpg"),
+            new ImageIcon("imagens/padrinhosMagicos_resized.jpg"),
+            new ImageIcon("imagens/perry-o-ornitorrinco_resized.png"),
+            new ImageIcon("imagens/Rei-LEao_resized.jpg"),
+            new ImageIcon("imagens/scoobDoo_resized.jpg"),
+            new ImageIcon("imagens/toyStory_resized.webp"),
+            new ImageIcon("imagens/mickey_resized.jpg"),
+            new ImageIcon("imagens/tresespias_resized.jpg")
     };
+
+    String[] botoesNome =
+            {
+                "Turma da Mônica",
+                "Looney Tunes",
+                "Os Padrinhos Mágicos",
+                "Perry o Ornitorrinco",
+                "O Rei Leão",
+                "Scooby Doo",
+                "Toy Story",
+                "Mickey",
+                "Três Espiãs Demais"
+            };
     private Parceiro servidor;
     private JLabel x = new JLabel("X");
     private JLabel pt1 = new JLabel("0");
@@ -37,54 +49,16 @@ public class Memoria extends JFrame implements Runnable {
     private int playerIndex = 0;
     private Integer CartaInA;
     private Integer CartaInB;
-
     private String nome, ip;
     private int porta;
     private Integer pontos = 0;
-
     private JPanel ponto1 = new JPanel(),
             ponto2 = new JPanel();
     private boolean[] cartasJaClicadasDoJogo = new boolean[18];
-
     private List<Carta> cartas = new ArrayList<Carta>();
     private List<Icon> imagens = new ArrayList<Icon>();
     private List<Carta> cartasClicadas = new ArrayList<Carta>();
     private Icon card = new ImageIcon("imagens/card.png");
-
-    public void embaralharCartas() {
-        Integer[] imagensCartas = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9};
-
-        List<Integer> intList = Arrays.asList(imagensCartas);
-
-        Collections.shuffle(intList);
-
-        intList.toArray(imagensCartas);
-
-        for (int i = 0; i < 18; i++) {
-            JButton botao = new JButton(card);
-            Carta carta = new Carta(botao, imagensCartas[i], i);
-            cartas.add(carta);
-
-        }
-    }
-
-    public void definirImagens() {
-        Icon[] icon = {new ImageIcon("imagens/turmaDaMonica_resized.jpg"),
-                new ImageIcon("imagens/looney-tunes_resized.jpg"),
-                new ImageIcon("imagens/padrinhosMagicos_resized.jpg"),
-                new ImageIcon("imagens/perry-o-ornitorrinco_resized.png"),
-                new ImageIcon("imagens/Rei-LEao_resized.jpg"),
-                new ImageIcon("imagens/scoobDoo_resized.jpg"),
-                new ImageIcon("imagens/toyStory_resized.webp"),
-                new ImageIcon("imagens/mickey_resized.jpg"),
-                new ImageIcon("imagens/tresespias_resized.jpg")
-        };
-
-        for (int i = 0; i < 9; i++) {
-            imagens.add(icon[i]);
-        }
-    }
-
     JPanel painel;
 
     protected Memoria(Parceiro servidor, String nome) throws Exception {
@@ -95,51 +69,6 @@ public class Memoria extends JFrame implements Runnable {
         this.nome = nome;
 
         new Thread(this).start();
-
-//        this.ip = ip;
-//        this.porta = porta;
-//
-//        Socket conexao = null;
-//        try {
-//            conexao = new Socket(this.ip, this.porta);
-//        } catch (Exception erro) {
-//            throw new Exception("Indique o servidor e a porta corretos!\n");
-//        }
-//
-//        ObjectOutputStream transmissor = null;
-//        try {
-//            transmissor =
-//                    new ObjectOutputStream(
-//                            conexao.getOutputStream());
-//        } catch (Exception erro) {
-//            throw new Exception("Indique o servidor e a porta corretos!\n");
-//        }
-//
-//        ObjectInputStream receptor = null;
-//        try {
-//            receptor =
-//                    new ObjectInputStream(
-//                            conexao.getInputStream());
-//        } catch (Exception erro) {
-//            throw new Exception("Indique o servidor e a porta corretos!\n");
-//        }
-//
-//        Parceiro servidorparca = null;
-//        try {
-//            servidorparca =
-//                    new Parceiro(conexao, receptor, transmissor);
-//        } catch (Exception erro) {
-//            throw new Exception("Indique o servidor e a porta corretos!\n");
-//        }
-
-        /*TratadoraDeComunicadoDeDesligamento tratadoraDeComunicadoDeDesligamento = null;
-        try {
-            tratadoraDeComunicadoDeDesligamento = new TratadoraDeComunicadoDeDesligamento(servidor);
-        } catch (Exception erro) {
-        }
-
-        tratadoraDeComunicadoDeDesligamento.start();*/
-
 
         painel = new JPanel();
         this.add(painel);
@@ -183,13 +112,8 @@ public class Memoria extends JFrame implements Runnable {
         Integer[] posicao18 = {810, 440, 150, 150};
         posicoes.add(posicao18);
 
-        embaralharCartas();
-        definirImagens();
-
-        int cartasSize = cartas.size();
-
-        for (int i = 0; i < cartasSize; i++) {
-            JButton botao = cartas.get(i).getBotao();
+        for (int i = 0; i < 18; i++) {
+            JButton botao = new JButton();
             painel.add(botao);
             botao.setBounds(
                     posicoes.get(i)[0],
@@ -280,7 +204,7 @@ public class Memoria extends JFrame implements Runnable {
                     else
                         CartaInB = carta.POSICAO;
 
-                    ((JButton)(botao)).setText(botoesNomes[indexCarta]);
+                    ((JButton)(botao)).setText(botoesNome[indexCarta]);
                 }
                 if(comunicado instanceof EnviaPontos)
                 {
@@ -308,11 +232,11 @@ public class Memoria extends JFrame implements Runnable {
                     if(turn != playerIndex)
                     {
                         JOptionPane.showMessageDialog(null, "Aguarde sua vez");
-                        for (int i = 0; i < cartas.size(); i++) {
-                            if(cartasJaClicadasDoJogo[i]) continue;
-                            Component botao = painel.getComponent(i);
-                            ((JButton)(botao)).setText("");
-                        }
+                    }
+                    for (int i = 0; i < 18; i++) {
+                        if(cartasJaClicadasDoJogo[i]) continue;
+                        Component botao = painel.getComponent(i);
+                        ((JButton)(botao)).setText(" ");
                     }
                 }
                 if(comunicado instanceof EnviaResultado)
