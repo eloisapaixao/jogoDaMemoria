@@ -1,9 +1,0 @@
---  Precisamos de um pedido de virar a carta(pedido de operacao)
---  Quando a carta é clicada, ele retornará a posição da carta clicada
-
--- pegar a posicao do carta por meio do supervisorDeConexao
-
--- pedido de carta clicada
--- pedido de resultado 
--- pedido de pontos
--- pedido de nome
